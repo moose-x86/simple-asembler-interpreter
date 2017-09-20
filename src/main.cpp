@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
   }
   else
   {
-	std::ifstream f{argv[1]};
-	user_interface::main_loop(f, true);
+    std::ifstream f{argv[1]};
+    user_interface::main_loop(f, true);
   }
 }

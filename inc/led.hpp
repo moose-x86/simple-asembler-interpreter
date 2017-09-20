@@ -30,8 +30,16 @@ struct empty_led : public led
 {
   empty_led(std::ostream& os) : physical_layer(os) {}
 
-  void switch_on() { physical_layer << std::endl; }
-  void switch_off() { physical_layer << std::endl; }
+  void switch_on()
+  {
+      physical_layer << "\r";
+      physical_layer.flush();
+  }
+  void switch_off()
+  {
+      physical_layer << "\r";
+      physical_layer.flush();
+  }
 
 private:
   std::ostream& physical_layer;

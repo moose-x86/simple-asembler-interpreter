@@ -21,7 +21,7 @@ void led_controller::on_bus_state_change()
         if ( bus->get_bus_line(led.index()) )
         {
              led.value()->switch_on();
-		}
+        }
         else
         {
              led.value()->switch_off();

@@ -16,6 +16,11 @@ std::istream& operator>>(std::istream& in, small_interpreter& i)
   return in;
 }
 
+void small_interpreter::register_on_out_command(std::function<void()> f)
+{
+  hardware_driver.register_on_out_command(f);
+}
+
 small_interpreter& operator<<(small_interpreter& interpreter, const std::string& line)
 {
   try

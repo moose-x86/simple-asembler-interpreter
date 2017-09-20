@@ -1,0 +1,47 @@
+@startuml
+
+namespace front_end {
+small_interpreter -() user_interface
+small_interpreter "1" -up- "1" parser
+small_interpreter "1" -up- "1" translator
+small_interpreter "1" -- "1" hardware_driver
+}
+
+namespace back_end{
+front_end.hardware_driver "*" -down-> "1" hardware_board
+hardware_board "1" -left-> "1" simple_execution_unit
+hardware_board "1" -up-> "1" led_controller
+hardware_board "1" -up-> "33" led
+bus_interface "1" -down- "1" simple_execution_unit
+led_controller "1" -right-> "1" bus_interface
+led_controller "1" -down-> "33" led
+execution_unit <|-- simple_execution_unit
+simple_execution_unit *-- exec_unit_cache
+namespace instructions{
+instruction <|-- rrca
+instruction <|-- lrca
+instruction <|-- load
+instruction <|-- out
+instruction <|-- djnz
+instruction <|-- add
+instruction <|-- mul
+instruction <|-- repeat
+instruction <|-- no_operation
+instruction <|-- sleep
+}
+exec_unit_cache "1" -- "*" back_end.instructions.instruction
+exec_unit_register <|-down- register_d
+exec_unit_register <|-down- register_b
+exec_unit_register <|-down- register_c
+exec_unit_register <|-down- register_a
+simple_execution_unit *-down- register_d
+simple_execution_unit *-down- register_b
+simple_execution_unit *-down- register_c
+simple_execution_unit *-down- register_a
+simple_execution_unit *-up- register_ip
+led <|-up- blue_led
+led <|-up- empty_led
+.std.cout <-up- blue_led
+.std.cout <-up- empty_led
+}
+@enduml

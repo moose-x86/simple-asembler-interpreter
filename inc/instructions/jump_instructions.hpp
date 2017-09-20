@@ -26,14 +26,5 @@ private:
   register_type_ip ip_value{0};
 };
 
-struct repeat : public instruction_of_type<repeat>
-{
-  void execute_using(register_type_ip& ip) const
-  {
-    ip = {};
-  }
-};
-
 }
-
 }

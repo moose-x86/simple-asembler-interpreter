@@ -5,6 +5,7 @@
 #include <cmath>
 #include <algorithm>
 #include <cassert>
+#include <set>
 
 namespace back_end
 {
@@ -30,22 +31,27 @@ struct exec_unit_register : private std::array<register_bit, 32>
 
 struct register_type_a : public exec_unit_register
 {
-	static const label_type label;
+  static const label_type label;
 };
 
 struct register_type_b : public exec_unit_register
 {
-	static const label_type label;
+  static const label_type label;
 };
 
 struct register_type_c : public exec_unit_register
 {
-	static const label_type label;
+  static const label_type label;
 };
 
 struct register_type_d : public exec_unit_register
 {
-	static const label_type label;
+  static const label_type label;
+};
+
+struct register_spec
+{
+   static std::set<exec_unit_register::label_type> specs;
 };
 
 using register_type_ip = std::uint32_t;

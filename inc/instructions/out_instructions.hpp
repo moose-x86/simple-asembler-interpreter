@@ -15,7 +15,7 @@ struct out_register : public instruction_of_type<out_register>
 
     void execute_using(const execution_unit::exec_unit_reg_descriptor& d, bus_state_notify_api& b) const
     {
-        b.impulse_on_state_change_bus_line(d.at(label));
+        b.notify_on_change_of(d.at(label));
     }
 
 private:

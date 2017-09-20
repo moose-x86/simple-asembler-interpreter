@@ -2,6 +2,9 @@
 
 #include "exec_unit_cache.hpp"
 #include <memory>
+#include <vector>
+#include <functional>
+#include "execution_unit.hpp"
 
 namespace back_end
 {
@@ -19,11 +22,13 @@ private:
 class hardware_driver
 {
 public:
-	hardware_driver();
+    hardware_driver();
 	serial_interface& get_serial_interface();
+	void register_on_out_command(std::function<void()>);
 
 private:
   std::shared_ptr<hardware_bord> hw{};
+  std::shared_ptr<execution_unit::out_command_callback> callbacks_set{};
 };
 
 }

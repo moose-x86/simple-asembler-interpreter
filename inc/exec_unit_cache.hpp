@@ -31,13 +31,8 @@ public:
 
   void read_and_save(cache_lines&& movable)
   {
-//    insert(end(),
-//           std::make_move_iterator(movable.begin()),
-//           std::make_move_iterator(movable.end()));
-
-	  assert(std::all_of(movable.begin(), movable.end(), [](auto& p){ return p != nullptr; }));
-
-	  std::move(movable.begin(), movable.end(), std::back_inserter(*this));
+    assert(std::all_of(movable.begin(), movable.end(), [](auto& p){ return p != nullptr; }));
+    std::move(movable.begin(), movable.end(), std::back_inserter(*this));
   }
 };
 

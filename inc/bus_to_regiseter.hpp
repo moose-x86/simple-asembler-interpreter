@@ -31,7 +31,7 @@ class exec_unit_bus_to_register : public bus_to_register,
 
 struct bus_state_notify_api
 {
-  virtual void impulse_on_state_change_bus_line(const exec_unit_register* reg) = 0;
+  virtual void notify_on_change_of(const exec_unit_register* reg) = 0;
   virtual ~bus_state_notify_api() = default;
 };
 
@@ -42,7 +42,7 @@ public:
   closeble_bus_to_register();
 
   void close();
-  void impulse_on_state_change_bus_line(const exec_unit_register* reg) override;
+  void notify_on_change_of(const exec_unit_register* reg) override;
 
 private:
   void register_on_change(const callback_type&) override;

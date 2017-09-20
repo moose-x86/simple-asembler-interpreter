@@ -31,6 +31,8 @@ private:
   ret create_djnz(const parser::command&);
   ret create_add(const parser::command&);
   ret create_mul(const parser::command&);
+  ret create_sleep(const parser::command&);
+  ret create_repeat(const parser::command&);
 };
 
 

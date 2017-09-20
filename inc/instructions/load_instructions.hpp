@@ -9,7 +9,7 @@ namespace back_end
 namespace instructions
 {
 
-class load : public instruction_of_type<load>
+struct load : public instruction_of_type<load>
 {
   struct visit : public boost::static_visitor<>
   {

@@ -12,6 +12,8 @@ public:
   small_interpreter();
   small_interpreter(std::ostream& s);
 
+  void register_on_out_command(std::function<void()>);
+
   friend std::istream& operator>>(std::istream&, small_interpreter&);
   friend small_interpreter& operator<<(small_interpreter& i, const std::string& s);
 

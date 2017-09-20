@@ -12,7 +12,7 @@ namespace back_end
 class simple_execution_unit final : public execution_unit
 {
 public:
-  simple_execution_unit();
+  simple_execution_unit(std::shared_ptr<out_command_callback> c);
   ~simple_execution_unit();
 
   void execute_from_cache();
@@ -30,6 +30,7 @@ private:
   void execute(const instructions::mul&) override;
   void execute(const instructions::no_operation&) override;
   void execute(const instructions::out_register&) override;
+  void execute(const instructions::sleep&) override;
 
   const exec_unit_reg_descriptor descriptor{};
   exec_unit_cache  cache{};
@@ -40,6 +41,7 @@ private:
   register_type_ip reg_IP{};
 
   std::shared_ptr<closeble_bus_to_register> bus_interface = std::make_shared<closeble_bus_to_register>();
+  std::shared_ptr<out_command_callback> callbacks;
 };
 
 execution_unit& operator>>(instructions_to_execute&& i, simple_execution_unit& eu);

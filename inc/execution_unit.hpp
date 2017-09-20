@@ -3,6 +3,8 @@
 #include <type_traits>
 #include <unordered_map>
 #include "exec_unit_register.hpp"
+#include <vector>
+#include <functional>
 
 namespace back_end
 {
@@ -17,12 +19,14 @@ namespace instructions
   struct repeat;
   struct add;
   struct mul;
+  struct sleep;
 }
 
 class execution_unit
 {
 public:
   using exec_unit_reg_descriptor = std::unordered_map<exec_unit_register::label_type, exec_unit_register*>;
+  using out_command_callback = std::vector<std::function<void()>>;
 
   virtual void execute(const instructions::djnz&) = 0;
   virtual void execute(const instructions::out_register&) = 0;
@@ -33,6 +37,7 @@ public:
   virtual void execute(const instructions::repeat&) = 0;
   virtual void execute(const instructions::add&) = 0;
   virtual void execute(const instructions::mul&) = 0;
+  virtual void execute(const instructions::sleep&) = 0;
 
   virtual ~execution_unit() = default;
 };

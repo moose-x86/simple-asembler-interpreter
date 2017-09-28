@@ -20,13 +20,12 @@ parser::command parser::parse_line(const std::string& line)
 
   if(copy.front() != '#')
   {
-    std::regex re("[a-z]+|[().0-9]+");
+    std::regex re("[a-z0-9().]+");
     std::sregex_iterator next(copy.begin(), copy.end(), re);
     std::sregex_iterator end;
 
     while (next != end)
         cmd.push_back(std::smatch{*next++}.str());
-
   }
   return cmd;
 }

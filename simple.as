@@ -6,13 +6,13 @@ ping:
   ld b, 27
   loop1:
     out (0), a
-    sleep 70000
+    sleep 0.075
     lrca
   djnz loop1
   ld b, 27
   loop2:
     out (0), a
-    sleep 70000
+    sleep 0.075
     rrca
   djnz loop2
   ld b, c

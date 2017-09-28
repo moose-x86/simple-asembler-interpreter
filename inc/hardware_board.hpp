@@ -22,9 +22,9 @@ private:
 class hardware_driver
 {
 public:
-    hardware_driver();
-	serial_interface& get_serial_interface();
-	void register_on_out_command(std::function<void()>);
+  hardware_driver();
+  serial_interface& get_serial_interface();
+  void register_on_out_command(std::function<void()>);
 
 private:
   std::shared_ptr<hardware_bord> hw{};

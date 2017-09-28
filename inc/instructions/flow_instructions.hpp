@@ -2,11 +2,11 @@
 
 #include "instruction.hpp"
 #include "exec_unit_register.hpp"
+
 namespace back_end
 {
 namespace instructions
 {
-
 
 struct no_operation : public instruction_of_type<no_operation>
 {};
@@ -21,17 +21,13 @@ struct repeat : public instruction_of_type<repeat>
 
 struct sleep : public instruction_of_type<sleep>
 {
-	sleep(std::uint32_t time) : time(time) {}
-
-	void execute() const
-	{
-		usleep(time);
-	}
+public:
+   sleep(std::uint32_t time) : time(time) {}
+   void execute() const { usleep(time); }
 
 private:
-	std::uint32_t time{};
+   std::uint32_t time{};
 };
-
 
 }
 }

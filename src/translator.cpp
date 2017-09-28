@@ -122,7 +122,7 @@ translator::ret translator::create_out(const parser::command& c)
   auto registers = register_spec::specs;
   ret instructions{};
 
-  if(c.at(1) != "0")
+  if(c.at(1) != "(0)")
     throw std::runtime_error{"first parameter should be 0"};
 
   if(not registers.count(c.at(2)))
@@ -137,7 +137,9 @@ translator::ret translator::create_sleep(const parser::command& c)
   using namespace back_end;
 
   ret instructions{};
-  instructions.push_back(std::make_unique<instructions::sleep>(std::stoi(c.at(1))));
+
+  std::cout << std::stof(c.at(1));
+  instructions.push_back(std::make_unique<instructions::sleep>(std::stof(c.at(1))));
 
   return instructions;
 }

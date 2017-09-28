@@ -2,6 +2,7 @@
 
 #include "instruction.hpp"
 #include "exec_unit_register.hpp"
+#include <chrono>
 
 namespace back_end
 {
@@ -22,11 +23,17 @@ struct repeat : public instruction_of_type<repeat>
 struct sleep : public instruction_of_type<sleep>
 {
 public:
-   sleep(std::uint32_t time) : time(time) {}
-   void execute() const { usleep(time); }
+   sleep(float time) : time(time) {}
+   void execute() const
+   {
+       using namespace std::chrono_literals;
+       using namespace std::chrono;
+       auto ms = duration_cast<microseconds>(1s);
+       usleep(ms.count() * time);
+   }
 
 private:
-   std::uint32_t time{};
+   const float time;
 };
 
 }

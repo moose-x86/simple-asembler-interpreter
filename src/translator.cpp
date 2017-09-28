@@ -70,7 +70,7 @@ translator::ret translator::create_load(const parser::command& c)
 
   try
   {
-    auto val = std::stoi(c.at(2));
+    auto val = std::stoul(c.at(2));
     result.push_back(std::make_unique<instructions::load>(c.at(1), val));
   }
   catch(std::logic_error&)
@@ -89,7 +89,7 @@ translator::ret translator::create_bit_and(const parser::command& c)
 
   try
   {
-    auto val = std::stoi(c.at(2));
+    auto val = std::stoul(c.at(2));
     result.push_back(std::make_unique<instructions::bit_and>(c.at(1), val));
   }
   catch(std::logic_error&)
@@ -108,7 +108,7 @@ translator::ret translator::create_bit_or(const parser::command& c)
 
   try
   {
-    auto val = std::stoi(c.at(2));
+    auto val = std::stoul(c.at(2));
     result.push_back(std::make_unique<instructions::bit_or>(c.at(1), val));
   }
   catch(std::logic_error&)
@@ -127,7 +127,7 @@ translator::ret translator::create_bit_xor(const parser::command& c)
 
   try
   {
-    auto val = std::stoi(c.at(2));
+    auto val = std::stoul(c.at(2));
     result.push_back(std::make_unique<instructions::bit_xor>(c.at(1), val));
   }
   catch(std::logic_error&)
@@ -146,7 +146,7 @@ translator::ret translator::create_add(const parser::command& c)
 
   try
   {
-    auto val = std::stoi(c.at(2));
+    auto val = std::stoul(c.at(2));
     result.push_back(std::make_unique<instructions::add>(c.at(1), val));
   }
   catch(std::logic_error&)
@@ -165,7 +165,7 @@ translator::ret translator::create_mul(const parser::command& c)
 
   try
   {
-    auto val = std::stoi(c.at(2));
+    auto val = std::stoul(c.at(2));
     result.push_back(std::make_unique<instructions::mul>(c.at(1), val));
   }
   catch(std::logic_error&)

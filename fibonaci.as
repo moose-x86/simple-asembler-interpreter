@@ -1,12 +1,9 @@
 # use cat ./fibonaci.as | ./bin/simple-asembler.out
 # fibonaci
-ld a, 1
-ld c, 1
-ld b, 32
+ld a, 2863311530
+ld b, 10
 loop:
   out (0), a
-  ld d, a
-  ld a, c
-  add c, d
-  sleep 0.25
+  xor a, a
+  sleep 0.2
 djnz loop

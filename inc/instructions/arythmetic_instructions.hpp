@@ -79,7 +79,7 @@ struct bit_and : public instruction_of_type<bit_and>,
 };
 
 struct bit_or : public instruction_of_type<bit_or>,
-                 public detail::arythmetic_instructon<std::bit_or<exec_unit_register::hold_type>>
+                public detail::arythmetic_instructon<std::bit_or<exec_unit_register::hold_type>>
 {
   using arythmetic_instructon<std::bit_or<exec_unit_register::hold_type>>::arythmetic_instructon;
 };

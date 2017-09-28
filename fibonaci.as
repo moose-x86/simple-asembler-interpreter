@@ -8,5 +8,5 @@ loop:
   ld d, a
   ld a, c
   add c, d
-  sleep 500000
+  sleep 0.25
 djnz loop

@@ -31,6 +31,9 @@ private:
   void execute(const instructions::no_operation&) override;
   void execute(const instructions::out_register&) override;
   void execute(const instructions::sleep&) override;
+  void execute(const instructions::bit_or&) override;
+  void execute(const instructions::bit_xor&) override;
+  void execute(const instructions::bit_and&) override;
 
   const exec_unit_reg_descriptor descriptor{};
   exec_unit_cache  cache{};

@@ -72,6 +72,24 @@ struct mul : public instruction_of_type<mul>,
   using arythmetic_instructon<std::multiplies<exec_unit_register::hold_type>>::arythmetic_instructon;
 };
 
+struct bit_and : public instruction_of_type<bit_and>,
+                 public detail::arythmetic_instructon<std::bit_and<exec_unit_register::hold_type>>
+{
+  using arythmetic_instructon<std::bit_and<exec_unit_register::hold_type>>::arythmetic_instructon;
+};
+
+struct bit_or : public instruction_of_type<bit_or>,
+                 public detail::arythmetic_instructon<std::bit_or<exec_unit_register::hold_type>>
+{
+  using arythmetic_instructon<std::bit_or<exec_unit_register::hold_type>>::arythmetic_instructon;
+};
+
+struct bit_xor : public instruction_of_type<bit_xor>,
+                 public detail::arythmetic_instructon<std::bit_xor<exec_unit_register::hold_type>>
+{
+  using arythmetic_instructon<std::bit_xor<exec_unit_register::hold_type>>::arythmetic_instructon;
+};
+
 
 } // using instructions
 } // using back_end

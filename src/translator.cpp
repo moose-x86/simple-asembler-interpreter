@@ -21,6 +21,9 @@ translator::translator()
     inst["djnz"] = std::bind(&translator::create_djnz, this, _1);
     inst["sleep"] = std::bind(&translator::create_sleep, this, _1);
     inst["repeat"] = std::bind(&translator::create_repeat, this, _1);
+    inst["and"] = std::bind(&translator::create_bit_and, this, _1);
+    inst["or"] = std::bind(&translator::create_bit_or, this, _1);
+    inst["xor"] = std::bind(&translator::create_bit_xor, this, _1);
 }
 
 back_end::instructions_to_execute translator::create_instruction_from(const parser::command& c)
@@ -73,6 +76,63 @@ translator::ret translator::create_load(const parser::command& c)
   catch(std::logic_error&)
   {
     result.push_back(std::make_unique<instructions::load>(c.at(1), c.at(2)));
+  }
+
+  return result;
+}
+
+translator::ret translator::create_bit_and(const parser::command& c)
+{
+  using namespace back_end;
+
+  ret result{};
+
+  try
+  {
+    auto val = std::stoi(c.at(2));
+    result.push_back(std::make_unique<instructions::bit_and>(c.at(1), val));
+  }
+  catch(std::logic_error&)
+  {
+    result.push_back(std::make_unique<instructions::bit_and>(c.at(1), c.at(2)));
+  }
+
+  return result;
+}
+
+translator::ret translator::create_bit_or(const parser::command& c)
+{
+  using namespace back_end;
+
+  ret result{};
+
+  try
+  {
+    auto val = std::stoi(c.at(2));
+    result.push_back(std::make_unique<instructions::bit_or>(c.at(1), val));
+  }
+  catch(std::logic_error&)
+  {
+    result.push_back(std::make_unique<instructions::bit_or>(c.at(1), c.at(2)));
+  }
+
+  return result;
+}
+
+translator::ret translator::create_bit_xor(const parser::command& c)
+{
+  using namespace back_end;
+
+  ret result{};
+
+  try
+  {
+    auto val = std::stoi(c.at(2));
+    result.push_back(std::make_unique<instructions::bit_xor>(c.at(1), val));
+  }
+  catch(std::logic_error&)
+  {
+    result.push_back(std::make_unique<instructions::bit_xor>(c.at(1), c.at(2)));
   }
 
   return result;
@@ -181,6 +241,7 @@ translator::ret translator::create_repeat(const parser::command& c)
 
   return instructions;
 }
+
 
 back_end::instructions_to_execute operator>>(parser::command&& cmd, translator& t)
 {

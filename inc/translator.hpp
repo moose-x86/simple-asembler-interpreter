@@ -32,6 +32,9 @@ private:
   ret create_mul(const parser::command&);
   ret create_sleep(const parser::command&);
   ret create_repeat(const parser::command&);
+  ret create_bit_and(const parser::command&);
+  ret create_bit_or(const parser::command&);
+  ret create_bit_xor(const parser::command&);
 };
 
 back_end::instructions_to_execute operator>>(parser::command&&, translator&);

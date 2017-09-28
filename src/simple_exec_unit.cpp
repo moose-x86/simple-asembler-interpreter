@@ -44,6 +44,21 @@ void simple_execution_unit::execute(const instructions::add& i)
   i.execute_using(descriptor);
 }
 
+void simple_execution_unit::execute(const instructions::bit_and& i)
+{
+  i.execute_using(descriptor);
+}
+
+void simple_execution_unit::execute(const instructions::bit_xor& i)
+{
+  i.execute_using(descriptor);
+}
+
+void simple_execution_unit::execute(const instructions::bit_or& i)
+{
+  i.execute_using(descriptor);
+}
+
 void simple_execution_unit::execute(const instructions::mul& i)
 {
   i.execute_using(descriptor);

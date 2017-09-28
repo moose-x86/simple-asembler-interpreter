@@ -18,6 +18,9 @@ namespace instructions
   struct no_operation;
   struct repeat;
   struct add;
+  struct bit_and;
+  struct bit_or;
+  struct bit_xor;
   struct mul;
   struct sleep;
 }
@@ -36,6 +39,9 @@ public:
   virtual void execute(const instructions::no_operation&) = 0;
   virtual void execute(const instructions::repeat&) = 0;
   virtual void execute(const instructions::add&) = 0;
+  virtual void execute(const instructions::bit_and&) = 0;
+  virtual void execute(const instructions::bit_xor&) = 0;
+  virtual void execute(const instructions::bit_or&) = 0;
   virtual void execute(const instructions::mul&) = 0;
   virtual void execute(const instructions::sleep&) = 0;
 

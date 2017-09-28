@@ -14,19 +14,19 @@ led_controller::led_controller(led_strip& leds,
 
 void led_controller::on_bus_state_change()
 {
-    using namespace boost::adaptors;
+  using namespace boost::adaptors;
 
-    for(const auto& led : leds | indexed(0))
+  for(const auto& led : leds | indexed(0))
+  {
+    if ( bus->get_bus_line(led.index()) )
     {
-        if ( bus->get_bus_line(led.index()) )
-        {
-             led.value()->switch_on();
-        }
-        else
-        {
-             led.value()->switch_off();
-        }
+      led.value()->switch_on();
     }
+    else
+    {
+      led.value()->switch_off();
+    }
+  }
 }
 
 } /* namespace back_end */

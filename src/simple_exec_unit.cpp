@@ -79,12 +79,12 @@ void simple_execution_unit::execute(const instructions::repeat& i)
 
 void simple_execution_unit::execute(const instructions::rrca& i)
 {
-  i.execute_using(reg_A);
+  i.execute_using(descriptor);
 }
 
 void simple_execution_unit::execute(const instructions::lrca& i)
 {
-  i.execute_using(reg_A);
+  i.execute_using(descriptor);
 }
 
 void simple_execution_unit::execute(const instructions::load& i)

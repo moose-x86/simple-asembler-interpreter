@@ -207,7 +207,7 @@ translator::ret translator::create_rrca(const parser::command& c)
   using namespace back_end;
 
   ret instructions{};
-  instructions.push_back(std::make_unique<instructions::rrca>());
+  instructions.push_back(std::make_unique<instructions::rrca>(c.at(1)));
 
   return instructions;
 }
@@ -217,7 +217,7 @@ translator::ret translator::create_lrca(const parser::command& c)
   using namespace back_end;
 
   ret instructions{};
-  instructions.push_back(std::make_unique<instructions::lrca>());
+  instructions.push_back(std::make_unique<instructions::lrca>(c.at(1)));
 
   return instructions;
 }

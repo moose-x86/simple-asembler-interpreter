@@ -11,7 +11,11 @@ simple_execution_unit::simple_execution_unit(std::shared_ptr<out_command_callbac
                                                     {register_type_a::label, std::addressof(reg_A)},
                                                     {register_type_b::label, std::addressof(reg_B)},
                                                     {register_type_c::label, std::addressof(reg_C)},
-                                                    {register_type_d::label, std::addressof(reg_D)}},
+                                                    {register_type_d::label, std::addressof(reg_D)},
+                                                    {register_type_e::label, std::addressof(reg_E)},
+                                                    {register_type_f::label, std::addressof(reg_F)},
+                                                    {register_type_g::label, std::addressof(reg_G)},
+                                                    {register_type_h::label, std::addressof(reg_H)}},
 													callbacks{c}
 {}
 

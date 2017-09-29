@@ -8,12 +8,20 @@ const exec_unit_register::label_type register_type_a::label = "a";
 const exec_unit_register::label_type register_type_b::label = "b";
 const exec_unit_register::label_type register_type_c::label = "c";
 const exec_unit_register::label_type register_type_d::label = "d";
+const exec_unit_register::label_type register_type_e::label = "e";
+const exec_unit_register::label_type register_type_f::label = "f";
+const exec_unit_register::label_type register_type_g::label = "g";
+const exec_unit_register::label_type register_type_h::label = "h";
 
 std::set<exec_unit_register::label_type> register_spec::specs{
       register_type_a::label,
       register_type_b::label,
       register_type_c::label,
-      register_type_d::label
+      register_type_d::label,
+      register_type_e::label,
+      register_type_f::label,
+      register_type_g::label,
+      register_type_h::label
 };
 
 exec_unit_register::hold_type uint32_cast(const exec_unit_register& r)

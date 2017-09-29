@@ -41,6 +41,10 @@ private:
   register_type_b  reg_B{};
   register_type_c  reg_C{};
   register_type_d  reg_D{};
+  register_type_e  reg_E{};
+  register_type_f  reg_F{};
+  register_type_g  reg_G{};
+  register_type_h  reg_H{};
   register_type_ip reg_IP{};
 
   std::shared_ptr<closeble_bus_to_register> bus_interface = std::make_shared<closeble_bus_to_register>();

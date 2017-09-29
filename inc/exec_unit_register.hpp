@@ -49,6 +49,26 @@ struct register_type_d : public exec_unit_register
   static const label_type label;
 };
 
+struct register_type_e : public exec_unit_register
+{
+  static const label_type label;
+};
+
+struct register_type_f : public exec_unit_register
+{
+  static const label_type label;
+};
+
+struct register_type_g : public exec_unit_register
+{
+  static const label_type label;
+};
+
+struct register_type_h : public exec_unit_register
+{
+  static const label_type label;
+};
+
 struct register_spec
 {
    static std::set<exec_unit_register::label_type> specs;

@@ -1,5 +1,5 @@
 # use cat ./simple.as | ./bin/simple-asembler.out
-ld b, 2
+ld b, 4
 ld e, 32768
 ld f, 65536
 
@@ -27,4 +27,5 @@ ping:
     sleep 0.1
   djnz loop2
   ld b, c
+  sleep 1
 djnz ping

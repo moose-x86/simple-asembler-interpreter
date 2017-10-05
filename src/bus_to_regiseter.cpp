@@ -1,5 +1,6 @@
 #include <boost/range/algorithm/for_each.hpp>
 #include "bus_to_regiseter.hpp"
+#include <boost/bind/apply.hpp>
 
 namespace back_end
 {
@@ -17,7 +18,7 @@ void closeble_bus_to_register::close()
 void closeble_bus_to_register::notify_on_change_of(const exec_unit_register* reg)
 {
   ptr_to_register_a = reg;
-  boost::for_each(state_change_notify_callbacks, [](auto& p){ p(); });
+  boost::for_each(state_change_notify_callbacks, boost::apply<void>());
 }
 
 bus_to_register::bus_line closeble_bus_to_register::get_bus_line(const std::uint32_t i) const

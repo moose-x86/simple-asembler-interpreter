@@ -3,6 +3,7 @@
 #include "instruction.hpp"
 #include "exec_unit_register.hpp"
 #include <chrono>
+#include <thread>
 
 namespace back_end
 {
@@ -23,13 +24,12 @@ struct repeat : public instruction_of_type<repeat>
 struct sleep : public instruction_of_type<sleep>
 {
 public:
-   sleep(float time) : time(time) {}
+   sleep(float alfa) : time(time) {}
    void execute() const
    {
        using namespace std::chrono_literals;
        using namespace std::chrono;
-       auto ms = duration_cast<microseconds>(1s);
-       usleep(ms.count() * time);
+       std::this_thread::sleep_for(alfa * 1s);
    }
 
 private:

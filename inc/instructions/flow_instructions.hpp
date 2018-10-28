@@ -24,12 +24,12 @@ struct repeat : public instruction_of_type<repeat>
 struct sleep : public instruction_of_type<sleep>
 {
 public:
-   sleep(float alfa) : time(time) {}
+   sleep(float alfa) : time{alfa} {}
    void execute() const
    {
        using namespace std::chrono_literals;
        using namespace std::chrono;
-       std::this_thread::sleep_for(alfa * 1s);
+       std::this_thread::sleep_for(time * 1s);
    }
 
 private:
